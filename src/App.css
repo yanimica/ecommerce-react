@@ -1,0 +1,11 @@
+.img-carrito {
+  height: 2rem;
+  margin-left: 35px;
+}
+
+.numero-carrito {
+  color: white;
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+}
