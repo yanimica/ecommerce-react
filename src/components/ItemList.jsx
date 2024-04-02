@@ -1,8 +1,10 @@
 import productos from "../productos.json";
-import { Item } from "../components/Item";
+import { Item } from "./Item";
 import CardGroup from "react-bootstrap/CardGroup";
 
-export const Producto = () => {
+export const ItemList = ({ category }) => {
+  console.log(category);
+
   return (
     <CardGroup>
       {productos.map((p) => (

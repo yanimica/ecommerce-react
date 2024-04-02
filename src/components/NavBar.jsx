@@ -12,24 +12,15 @@ export const NavBar = () => {
             {/*             <Nav.Link to="/" as={NavLink}>
               Home
             </Nav.Link> */}
-            <Nav.Link to="/category" as={NavLink}>
-              Catalogo
+            <Nav.Link to="/category/1" as={NavLink}>
+              Electrodomesticos
             </Nav.Link>
-            <Nav.Link to="/items" as={NavLink}>
-              Items
+            <Nav.Link to="/category/2" as={NavLink}>
+              Indumentaria
             </Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3" as={<NavLink />}>
-                Action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action4" as={<NavLink />}>
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5" as={<NavLink />}>
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link to="/category/3" as={NavLink}>
+              Accesorios
+            </Nav.Link>
             <CartWidget />
           </Nav>
         </Container>

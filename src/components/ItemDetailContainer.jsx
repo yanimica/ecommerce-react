@@ -23,7 +23,7 @@ export const ItemDetailContainer = () => {
         <Card.Text>{producto.description}</Card.Text>
         <Card.Footer>${producto.price}</Card.Footer>
         <Link to={`/Item/${producto.id}`}>
-          <Button variant="primary">VER</Button>{" "}
+          <Button variant="primary">Comprar</Button>{" "}
         </Link>
       </Card.Body>
     </Card>

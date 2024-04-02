@@ -1,22 +1,18 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
-import { Producto } from "./components/Producto";
-import { Catalogo } from "./components/Catalogo";
-import { Home } from "./components/Home";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
+import { ItemListContainer } from "./components/ItemListContainer";
 
 function App() {
   return (
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/category/:categoryId" element={<Catalogo />} />
-        <Route path="/items" element={<Producto />} />
-        <Route path="/category/:id" element={<Catalogo />} />
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/category/:id" element={<ItemListContainer />} />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
         <Route path="*" element={404} />
       </Routes>
