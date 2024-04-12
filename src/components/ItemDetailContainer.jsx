@@ -10,8 +10,9 @@ export const ItemDetailContainer = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    setProducto(data.find((p) => p.id === id));
-  }, []);
+    const selectedProduct = data.find((p) => p.id === id);
+    setProducto(selectedProduct);
+  }, [id]);
 
   if (!producto) return null;
 
