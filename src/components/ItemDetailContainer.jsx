@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import { getFirestore, getDocs, collection } from "firebase/firestore";
 
 export const ItemDetailContainer = () => {
   const [producto, setProducto] = useState(null);
