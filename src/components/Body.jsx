@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../productos.json";
+/* import data from "../productos.json"; */
 
 export default function Body() {
   /*   let productos = [];

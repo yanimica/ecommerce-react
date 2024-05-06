@@ -2,26 +2,40 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+/* import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css"; */
 
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { ItemListContainer } from "./components/ItemListContainer";
 
-/* import { getFirestore, getDocs, collection } from "firebase/firestore"; */
+/* import { getFirestore, getDoc, doc } from "firebase/firestore"; */
 
-/* function App() {
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+
+/* import {
+  getFirestore,
+  getDoc,
+  doc,
+  updateDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+  limit,
+  addDoc,
+} from "firebase/firestore"; */
+
+function App() {
   useEffect(() => {
     const db = getFirestore();
 
-    const refDoc = doc(db, "item collections", "GrtloYX7Fw3usE9kAr8S");
+    const refDoc = doc(db, "item collection", "GrtloYX7Fw3usE9kAr8S");
 
     getDoc(refDoc).then((snapshot) => {
       console.log({ id: snapshot.id, ...snapshot.data() });
     });
   }, []);
- */
-function App() {
+
   return (
     <BrowserRouter>
       <NavBar />

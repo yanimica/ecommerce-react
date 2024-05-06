@@ -1,27 +1,31 @@
 import { useParams } from "react-router-dom";
 import { ItemList } from "./ItemList";
 import { useEffect, useState } from "react";
-/* import data from "../productos.json"; */
+
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 export const ItemListContainer = () => {
-  const [category, setCategory] = useState([]);
+  const [products, setProducts] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchData = () => {
-      setTimeout(() => {
-        const filteredData = id
-          ? data.filter((item) => item.category === id)
-          : data;
-        setCategory(filteredData);
-      }, 2000);
-    };
+    const db = getFirestore();
 
-    fetchData();
+    let refCollection;
+
+    if (!id) refCollection = collection(db, "items");
+
+    getDocs(refCollection).then((snapshot) => {
+      setProducts(
+        snapshot.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() };
+        })
+      );
+    });
   }, [id]);
 
-  return category.length > 0 ? (
-    <ItemList category={category} />
+  return products.length > 0 ? (
+    <ItemList products={products} />
   ) : (
     <div>Loading...</div>
   );
