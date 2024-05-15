@@ -1,11 +1,15 @@
+import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import { useCart } from "../contexts/CartContext";
 
 export const Item = ({ producto }) => {
+  const { addItem } = useCart();
+
   return (
     <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={producto.img} />
+      <Card.Img variant="top" src={producto.imageURL} />
       <Card.Body>
         <Card.Title>{producto.title}</Card.Title>
         <Card.Text>{producto.description}</Card.Text>

@@ -1,32 +1,48 @@
 import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import Container from "react-bootstrap/Container";
 import { ItemList } from "./ItemList";
-import { useEffect, useState } from "react";
 
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 
 export const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
-    const db = getFirestore();
+    const obtenerProductos = async () => {
+      const db = getFirestore();
+      let refCollection;
 
-    let refCollection;
+      if (id) {
+        refCollection = query(
+          collection(db, "item collection"),
+          where("categoryID", "==", id)
+        );
+      } else {
+        refCollection = collection(db, "item collection");
+      }
 
-    if (!id) refCollection = collection(db, "items");
+      const querySnapshot = await getDocs(refCollection);
+      const productos = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setProducts(productos);
+    };
 
-    getDocs(refCollection).then((snapshot) => {
-      setProducts(
-        snapshot.docs.map((doc) => {
-          return { id: doc.id, ...doc.data() };
-        })
-      );
-    });
+    obtenerProductos();
   }, [id]);
 
-  return products.length > 0 ? (
-    <ItemList products={products} />
-  ) : (
-    <div>Loading...</div>
+  return (
+    <Container className="mt-4">
+      <ItemList products={products} />
+    </Container>
   );
 };

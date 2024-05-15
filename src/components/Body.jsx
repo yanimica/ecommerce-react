@@ -1,21 +1,6 @@
 import React from "react";
-/* import data from "../productos.json"; */
 
-export default function Body() {
-  /*   let productos = [];
-
-  const pedirProductos = () => {
-    return new Promise((resolve, reject) => {
-      resolve(data);
-    });
-  };
-
-  pedirProductos().then((res) => {
-    productos = res;
-  });
- */
-  /*   return <div>Soy Yani</div>; */
-}
+export default function Body() {}
 
 const pedirProductos = () => {
   return new Promise((resolve, reject) => {

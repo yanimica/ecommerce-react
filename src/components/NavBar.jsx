@@ -1,4 +1,4 @@
-import { NavDropdown, Nav, Navbar, Container } from "react-bootstrap";
+import { Nav, Navbar, Container } from "react-bootstrap";
 import { CartWidget } from "./CartWidget";
 import { NavLink } from "react-router-dom";
 
@@ -10,13 +10,13 @@ export const NavBar = () => {
           <Navbar.Brand href="/">Tienda shops</Navbar.Brand>
           <Nav className="me-auto">
             <NavLink to="/category/remeras" as={NavLink}>
-              remeras
+              Remeras
             </NavLink>
             <NavLink to="/category/pantalones" as={NavLink}>
-              pantalones
+              Pantalones
             </NavLink>
             <NavLink to="/category/shorts" as={NavLink}>
-              shorts
+              Shorts
             </NavLink>
             <CartWidget />
           </Nav>
