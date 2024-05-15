@@ -1,16 +1,6 @@
 import React from "react";
 
-export default function Body() {}
-
-const pedirProductos = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(data);
-    }, 2000);
-  });
-};
-
-pedirProductos().then((data) => {
+export default function Body() {
   return (
     <div>
       {pedirProductos.length > 0 &&
@@ -27,4 +17,4 @@ pedirProductos().then((data) => {
         })}
     </div>
   );
-});
+}

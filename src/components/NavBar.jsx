@@ -1,11 +1,12 @@
 import { Nav, Navbar, Container } from "react-bootstrap";
 import { CartWidget } from "./CartWidget";
 import { NavLink } from "react-router-dom";
+import "/src/App.css";
 
 export const NavBar = () => {
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar className="navbar navbar-dark bg-dark">
         <Container>
           <Navbar.Brand href="/">Tienda shops</Navbar.Brand>
           <Nav className="me-auto">

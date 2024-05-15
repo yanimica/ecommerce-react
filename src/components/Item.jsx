@@ -7,6 +7,10 @@ import { useCart } from "../contexts/CartContext";
 export const Item = ({ producto }) => {
   const { addItem } = useCart();
 
+  const handleAddToCart = () => {
+    addItem({ ...producto, quantity: 1 });
+  };
+
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src={producto.imageURL} />

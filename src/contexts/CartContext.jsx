@@ -10,7 +10,7 @@ export const CartProvider = ({ children }) => {
   const [items, setItems] = useState([]);
 
   const addItem = (item) => {
-    setItems([...items, item]);
+    setItems([...items, { ...item, quantity: 1 }]);
   };
 
   const removeItem = (id) => {
@@ -35,8 +35,8 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  const clear = () => {
-    setItems([]);
+  const getTotalQuantity = () => {
+    return items.reduce((total, item) => total + item.quantity, 0);
   };
 
   return (
@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
         removeItem,
         increaseQuantity,
         decreaseQuantity,
-        clear,
+        getTotalQuantity,
       }}
     >
       {children}
